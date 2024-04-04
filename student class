@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Class</title>
+<script>
+class Student {
+  constructor(name, rollNumber) {
+    this.name = name;
+    this.rollNumber = rollNumber;
+    this.marks = [];
+  }
+
+  setMarks(subject, mark) {
+    this.marks.push({ subject, mark });
+  }
+
+  getMarks() {
+    return this.marks;
+  }
+
+  displayDetails() {
+    document.getElementById("studentDetails").innerHTML = `
+      <p>Name: ${this.name}</p>
+      <p>Roll Number: ${this.rollNumber}</p>
+      <p>Marks: ${JSON.stringify(this.marks)}</p>
+    `;
+  }
+}
+
+const student = new Student("John Doe", 12345);
+student.setMarks("Math", 90);
+student.setMarks("Science", 85);
+</script>
+</head>
+<body>
+  <h1>Student Class Example</h1>
+  <div id="studentDetails"></div>
+  <script>student.displayDetails();</script>
+</body>
+</html>
